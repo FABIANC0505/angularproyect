@@ -9,4 +9,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('fabiangu');
+  protected readonly reservado = signal(false);
+
+  protected marcarReservado(event: Event): void {
+    event.preventDefault();
+    this.reservado.set(true);
+  }
 }

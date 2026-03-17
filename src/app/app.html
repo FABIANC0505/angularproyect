@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Tulip Dining - Reservaciones & amp; Contactos</title>
+<title>Tulip Dining - Reservaciones & Contactos</title>
 
 <style>
         body { font-family: 'Work Sans', sans-serif; }
@@ -21,7 +21,7 @@
 <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
 <div class="flex items-center p-4 justify-between max-w-xl mx-auto w-full">
 <button class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined">Hacia atras</span>
+<span class="material-symbols-outlined">arrow_back</span>
 </button>
 <h1 class="text-xl font-bold leading-tight tracking-tight flex-1 text-center font-display uppercase tracking-widest">Tulip</h1>
 <div class="size-10"></div> <!-- Spacer for balance -->
@@ -32,17 +32,17 @@
 <div class="@container px-4 py-4">
 <div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-[240px] shadow-2xl shadow-primary/5" data-alt="Elegant candlelit dining table at Lumière restaurant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBo78t7QdvlxASs5XObBSvbjFKx-b75wPk31C_4h4ZE3smEkNTYrPsZq48nc_eMLJNm3ucYyvzPVxrk1YdqED59PVD-6AX4nRBbvydqcGW2PPbD_0JwhMAnymrH7cSylmScbpEl47k8e4KvLUPmZ3TdAY2HLRYJInJ3vIFCNtKJdKyG2imSq8z-JFb0ZfDdySXtpp5snfjtKvJuLCdivWv3dfRFe74WBMpYdB0I5bC86SM2Ii6HXHrgfn5gI45qpkhZnEEdtr0brvA");'>
 <div class="bg-gradient-to-t from-background-dark/80 to-transparent p-6">
-<span class="bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Exelente Experiencia</span>
+<span class="bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Excelente experiencia</span>
 </div>
 </div>
 </div>
 <!-- Reservation Form Section -->
 <section class="px-4 py-6">
 <div class="flex items-center gap-2 mb-6">
-<span class="material-symbols-outlined text-primary">asiento del evento</span>
-<h2 class="text-2xl font-bold font-display">Haz tu Reservacion</h2>
+<span class="material-symbols-outlined text-primary">event_seat</span>
+<h2 class="text-2xl font-bold font-display">Haz tu reservación</h2>
 </div>
-<form class="space-y-4">
+<form (submit)="marcarReservado($event)" class="space-y-4">
 <div class="space-y-2">
 <label class="text-sm font-medium text-slate-600 dark:text-slate-400 ml-1">Nombre Completo</label>
 <input class="w-full rounded-xl border-primary/20 bg-white dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-14 px-4" placeholder="Julian Casablancas" type="text"/>
@@ -60,26 +60,31 @@
 </div>
 </div>
 <div class="space-y-2">
-<label class="text-sm font-medium text-slate-600 dark:text-slate-400 ml-1">Numero de Invitados</label>
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400 ml-1">Número de invitados</label>
 <select class="w-full rounded-xl border-primary/20 bg-white dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-primary h-14 px-4">
 <option>2 Personas</option>
 <option>3 Personas</option>
 <option>4 Personas</option>
-<option>5+ Personas (Contact us)</option>
+<option>5+ personas (Contáctanos)</option>
 </select>
 </div>
 <button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold h-14 rounded-xl transition-all shadow-lg shadow-primary/20 mt-4 active:scale-[0.98]" type="submit">
                     Confirmar Reserva
                 </button>
+@if (reservado()) {
+<button class="w-full bg-emerald-500/90 text-white font-bold h-14 rounded-xl transition-all mt-2" type="button">
+          Reservado
+        </button>
+}
 </form>
 </section>
 <!-- Contact & Location -->
 <section class="px-4 py-8 border-t border-primary/10 mt-4">
-<h3 class="text-lg font-bold font-display mb-6">Encuentranos</h3>
+<h3 class="text-lg font-bold font-display mb-6">Encuéntranos</h3>
 <!-- Map Placeholder -->
 <div class="w-full h-48 rounded-xl overflow-hidden mb-6 relative group" data-location="Paris, France">
 <div class="absolute inset-0 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl text-primary/40">mapa</span>
+<span class="material-symbols-outlined text-4xl text-primary/40">map</span>
 </div>
 <img class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Stylized map showing Lumiere Dining location in the city center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqw4clf2e4cjImIlDPAuYoQtv28FHmI6LtkDxX84-EXzAAfpVoydbL93x9ZBo1hYk9oevrjAw2ffEsbPkmwNoPRSG5mLoTQRrXDZwhcU3TJILphnnY1pQthJi9Ogu9qeo7I0L3JX-QY-9Up1ClLefUgrKn4hWtkGDpbhoQhXexonSJ93VEVBucGzEWsZ_7nUUQZr9ZVklArmElId2LHP9zX8YsLCt9muIx__cROZr3ySaRAunMOE4rEeGmaDuu2UXDOs5hB5F752o"/>
 <div class="absolute bottom-3 left-3 bg-background-dark/90 text-primary text-xs font-bold px-3 py-1 rounded-full border border-primary/30">
@@ -89,23 +94,33 @@
 <div class="space-y-6">
 <a class="flex items-center gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10 hover:border-primary/30 transition-colors" href="tel:+33123456789">
 <div class="size-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined">LLAMA</span>
+<span class="material-symbols-outlined">call</span>
 </div>
 <div>
-<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Telefono</p>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Teléfono</p>
 <p class="text-base font-semibold">+33 (0) 1 23 45 67 89</p>
 </div>
 </a>
 <div class="flex justify-center gap-6 pt-4">
 <a class="size-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:text-primary transition-colors border border-primary/5" href="#">
-<span class="material-symbols-outlined">publico</span>
+<span class="material-symbols-outlined">public</span>
 </a>
 <a class="size-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:text-primary transition-colors border border-primary/5" href="#">
-<span class="material-symbols-outlined">Comparte</span>
+<span class="material-symbols-outlined">share</span>
 </a>
 <a class="size-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:text-primary transition-colors border border-primary/5" href="#">
-<span class="material-symbols-outlined">Correo</span>
+<span class="material-symbols-outlined">mail</span>
 </a>
+</div>
+<div class="p-4 rounded-xl bg-primary/5 border border-primary/10">
+<div class="flex items-center gap-4">
+<img alt="Foto de perfil de Fabián" class="size-16 rounded-full object-cover border border-primary/30" src="https://github.com/FABIANC0505.png"/>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Perfil personal</p>
+<p class="text-base font-semibold">Fabián</p>
+<a class="text-sm font-medium text-primary hover:underline" href="https://github.com/FABIANC0505" rel="noopener noreferrer" target="_blank">Ir a mi GitHub</a>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -114,19 +129,19 @@
 <nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-light dark:bg-background-dark border-t border-primary/10 pb-safe">
 <div class="max-w-xl mx-auto flex h-16 items-center">
 <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">restaurante_menu</span>
-<span class="text-[10px] font-bold uppercase tracking-tighter">Menu</span>
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Menú</span>
 </a>
 <a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
-<span class="material-symbols-outlined fill-icon">calendario_año</span>
+<span class="material-symbols-outlined fill-icon">calendar_month</span>
 <span class="text-[10px] font-bold uppercase tracking-tighter">Reserva</span>
 </a>
 <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">gallery_thumbnail</span>
-<span class="text-[10px] font-bold uppercase tracking-tighter">Galleria</span>
+<span class="material-symbols-outlined">photo_library</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Galería</span>
 </a>
 <a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">person_outline</span>
+<span class="material-symbols-outlined">account_circle</span>
 <span class="text-[10px] font-bold uppercase tracking-tighter">Cuenta</span>
 </a>
 </div>
